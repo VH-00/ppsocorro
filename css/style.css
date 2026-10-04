@@ -1,0 +1,1370 @@
+
+/* =========================================================
+   1. VARIÁVEIS GLOBAIS
+   ========================================================= */
+
+:root {
+
+    /* ---------- CORES PRINCIPAIS ---------- */
+
+   /* Azul — cor principal */
+    --color-primary: #6FA8C2;
+    --color-primary-dark: #4F819A;
+    --color-primary-light: #A9D0DF;
+
+
+    /* Dourado — detalhes e destaque */
+    --color-secondary: #C9A45C;
+    --color-secondary-light: #E2C98D;
+
+
+    /* Marrom — madeira / elementos tradicionais */
+    --color-brown: #6B4A32;
+    --color-brown-dark: #493021;
+    --color-brown-light: #9A7658;
+
+
+    /* Fundos */
+    --color-background: #FFFFFF;
+    --color-background-light: #F7F5F0;
+    --color-background-warm: #F1EAE0;
+
+
+    /* Textos */
+    --color-text: #302C28;
+    --color-text-light: #716B65;
+
+
+    /* Cores neutras */
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-border: #DED9D1;
+
+
+    /* ---------- TIPOGRAFIA ---------- */
+
+    --font-primary:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    --font-heading:
+        Georgia,
+        'Times New Roman',
+        serif;
+
+
+    /* ---------- TAMANHOS ---------- */
+
+    --container-width: 1200px;
+
+    --radius-small: 6px;
+    --radius-medium: 12px;
+    --radius-large: 20px;
+
+
+    /* ---------- SOMBRAS ---------- */
+
+    --shadow-small:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+
+    --shadow-medium:
+        0 8px 25px rgba(0, 0, 0, 0.10);
+
+
+    /* ---------- TRANSIÇÕES ---------- */
+
+    --transition:
+        0.3s ease;
+
+}
+
+
+/* =========================================================
+   2. RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family: var(--font-primary);
+
+    color: var(--color-text);
+
+    background-color:
+        var(--color-background);
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   3. ELEMENTOS GERAIS
+   ========================================================= */
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   4. CONTAINER
+   ========================================================= */
+
+.container {
+
+    width: min(
+        calc(100% - 40px),
+        var(--container-width)
+    );
+
+    margin-inline: auto;
+}
+
+
+/* =========================================================
+   5. CABEÇALHO
+   ========================================================= */
+
+.header {
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background-color:
+        var(--color-white);
+
+    border-bottom:
+        1px solid var(--color-border);
+
+    box-shadow:
+        var(--shadow-small);
+}
+
+.header .container {
+
+    min-height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* ---------- LOGO ---------- */
+
+.logo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    line-height: 1.1;
+
+    color:
+        var(--color-primary);
+}
+
+.logo span {
+
+    font-size: 14px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.logo strong {
+
+    font-family:
+        var(--font-heading);
+
+    font-size: 20px;
+}
+
+
+/* ---------- MENU ---------- */
+
+.menu ul {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+.menu a {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        color var(--transition);
+}
+
+.menu a:hover {
+
+    color:
+        var(--color-primary);
+}
+
+
+/* ---------- MENU MOBILE ---------- */
+
+.menu-toggle {
+
+    display: none;
+
+    border: none;
+
+    background: none;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    color:
+        var(--color-primary);
+}
+
+
+/* =========================================================
+   6. BOTÕES
+   ========================================================= */
+
+.button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        12px 24px;
+
+    border-radius:
+        var(--radius-small);
+
+    background:
+        var(--color-primary);
+
+    color:
+        var(--color-white);
+
+    font-weight: 600;
+
+    transition:
+        background var(--transition),
+        transform var(--transition);
+}
+
+.button:hover {
+
+    background:
+        var(--color-primary-dark);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.button-outline {
+
+    background:
+        transparent;
+
+    border:
+        1px solid var(--color-white);
+
+    color:
+        var(--color-white);
+}
+
+.button-outline:hover {
+
+    background:
+        var(--color-white);
+
+    color:
+        var(--color-primary);
+}
+
+
+/* =========================================================
+   7. HERO
+   ========================================================= */
+
+.hero {
+
+    min-height: 650px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+        ),
+
+        var(--color-primary);
+
+    color:
+        var(--color-white);
+}
+
+.hero-content {
+
+    max-width: 700px;
+}
+
+.hero-subtitle {
+
+    display: block;
+
+    margin-bottom: 15px;
+
+    color:
+        var(--color-secondary-light);
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 14px;
+}
+
+.hero h1 {
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(40px, 6vw, 72px);
+
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+}
+
+.hero p {
+
+    max-width: 600px;
+
+    font-size: 18px;
+
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   8. SEÇÕES
+   ========================================================= */
+
+section {
+
+    padding:
+        100px 0;
+}
+
+.section-header {
+
+    max-width: 700px;
+
+    margin:
+        0 auto 50px;
+
+    text-align: center;
+}
+
+.section-subtitle {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color:
+        var(--color-primary);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+.section-header h2 {
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height: 1.2;
+
+    margin-bottom: 15px;
+}
+
+.section-header p {
+
+    color:
+        var(--color-text-light);
+}
+
+.section-button {
+
+    margin-top: 40px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   9. CELEBRAÇÕES
+   ========================================================= */
+
+.celebracoes {
+
+    background:
+        var(--color-background-light);
+}
+
+.celebracoes-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.celebracao-card {
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background:
+        var(--color-white);
+
+    border:
+        1px solid var(--color-border);
+
+    border-radius:
+        var(--radius-medium);
+
+    box-shadow:
+        var(--shadow-small);
+
+    transition:
+        transform var(--transition);
+}
+
+.celebracao-card:hover {
+
+    transform:
+        translateY(-5px);
+}
+
+.celebracao-card .dia {
+
+    color:
+        var(--color-primary);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.celebracao-card h3 {
+
+    margin:
+        10px 0;
+
+    font-family:
+        var(--font-heading);
+
+    font-size: 24px;
+}
+
+.celebracao-card .horario {
+
+    display: block;
+
+    color:
+        var(--color-primary);
+
+    font-size: 36px;
+
+    font-weight: 700;
+}
+
+.celebracao-card p {
+
+    color:
+        var(--color-text-light);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   10. SOBRE A IGREJA
+   ========================================================= */
+
+.sobre {
+
+    background:
+        var(--color-white);
+}
+
+.sobre-content {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.sobre-imagem {
+
+    min-height: 450px;
+}
+
+.image-placeholder {
+
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius:
+        var(--radius-large);
+
+    background:
+        var(--color-background-dark);
+
+    color:
+        var(--color-text-light);
+
+    font-size: 18px;
+}
+
+.sobre-texto h2 {
+
+    margin:
+        10px 0 25px;
+
+    font-family:
+        var(--font-heading);
+
+    font-size: 42px;
+}
+
+.sobre-texto p {
+
+    margin-bottom: 20px;
+
+    color:
+        var(--color-text-light);
+}
+
+.sobre-texto .button {
+
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   11. COMUNIDADE
+   ========================================================= */
+
+.comunidade {
+
+    background:
+        var(--color-background-light);
+}
+
+.comunidade-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.comunidade-card {
+
+    padding: 40px 30px;
+
+    background:
+        var(--color-white);
+
+    border-radius:
+        var(--radius-medium);
+
+    text-align: center;
+
+    box-shadow:
+        var(--shadow-small);
+
+    transition:
+        transform var(--transition);
+}
+
+.comunidade-card:hover {
+
+    transform:
+        translateY(-5px);
+}
+
+.comunidade-card .icon {
+
+    width: 65px;
+    height: 65px;
+
+    margin:
+        0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        var(--color-primary);
+
+    color:
+        var(--color-white);
+
+    font-size: 25px;
+}
+
+.comunidade-card h3 {
+
+    font-family:
+        var(--font-heading);
+
+    font-size: 25px;
+
+    margin-bottom: 10px;
+}
+
+.comunidade-card p {
+
+    margin-bottom: 20px;
+
+    color:
+        var(--color-text-light);
+}
+
+.comunidade-card a {
+
+    color:
+        var(--color-primary);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   12. EVENTOS
+   ========================================================= */
+
+.eventos-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.evento-card {
+
+    overflow: hidden;
+
+    background:
+        var(--color-white);
+
+    border:
+        1px solid var(--color-border);
+
+    border-radius:
+        var(--radius-medium);
+
+    box-shadow:
+        var(--shadow-small);
+}
+
+.evento-imagem {
+
+    height: 220px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        var(--color-background-dark);
+
+    color:
+        var(--color-text-light);
+}
+
+.evento-content {
+
+    padding: 25px;
+}
+
+.evento-data {
+
+    color:
+        var(--color-primary);
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.evento-content h3 {
+
+    margin:
+        8px 0 10px;
+
+    font-family:
+        var(--font-heading);
+
+    font-size: 24px;
+}
+
+.evento-content p {
+
+    margin-bottom: 15px;
+
+    color:
+        var(--color-text-light);
+}
+
+.evento-content a {
+
+    color:
+        var(--color-primary);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   13. NOTÍCIAS
+   ========================================================= */
+
+.noticias {
+
+    background:
+        var(--color-background-light);
+}
+
+.noticias-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.noticia-card {
+
+    overflow: hidden;
+
+    background:
+        var(--color-white);
+
+    border-radius:
+        var(--radius-medium);
+
+    box-shadow:
+        var(--shadow-small);
+}
+
+.noticia-imagem {
+
+    height: 200px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        var(--color-background-dark);
+
+    color:
+        var(--color-text-light);
+}
+
+.noticia-content {
+
+    padding: 25px;
+}
+
+.noticia-data {
+
+    color:
+        var(--color-primary);
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.noticia-content h3 {
+
+    margin:
+        8px 0 10px;
+
+    font-family:
+        var(--font-heading);
+
+    font-size: 23px;
+}
+
+.noticia-content p {
+
+    margin-bottom: 15px;
+
+    color:
+        var(--color-text-light);
+}
+
+.noticia-content a {
+
+    color:
+        var(--color-primary);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   14. GALERIA
+   ========================================================= */
+
+.galeria {
+
+    background:
+        var(--color-white);
+}
+
+.galeria-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.galeria-item {
+
+    min-height: 250px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        var(--color-background-dark);
+
+    color:
+        var(--color-text-light);
+
+    border-radius:
+        var(--radius-small);
+
+    transition:
+        transform var(--transition);
+}
+
+.galeria-item:hover {
+
+    transform:
+        scale(1.02);
+}
+
+
+/* =========================================================
+   15. CONTATO
+   ========================================================= */
+
+.contato {
+
+    background:
+        var(--color-background-light);
+}
+
+.contato-content {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 60px;
+
+    align-items: stretch;
+}
+
+.contato-info h2 {
+
+    margin:
+        10px 0 20px;
+
+    font-family:
+        var(--font-heading);
+
+    font-size: 42px;
+}
+
+.contato-info > p {
+
+    margin-bottom: 30px;
+
+    color:
+        var(--color-text-light);
+}
+
+.contato-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin-bottom: 20px;
+}
+
+.contato-item strong {
+
+    color:
+        var(--color-primary);
+
+    margin-bottom: 3px;
+}
+
+.contato-item span {
+
+    color:
+        var(--color-text-light);
+}
+
+.mapa {
+
+    min-height: 400px;
+}
+
+.mapa-placeholder {
+
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        var(--color-background-dark);
+
+    border-radius:
+        var(--radius-medium);
+
+    color:
+        var(--color-text-light);
+}
+
+
+/* =========================================================
+   16. RODAPÉ
+   ========================================================= */
+
+.footer {
+
+    padding:
+        70px 0 25px;
+
+    background:
+        var(--color-primary-dark);
+
+    color:
+        var(--color-white);
+}
+
+.footer-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr 1.5fr;
+
+    gap: 40px;
+
+    padding-bottom: 50px;
+}
+
+.footer-col h3 {
+
+    margin-bottom: 20px;
+
+    font-family:
+        var(--font-heading);
+
+    font-size: 20px;
+}
+
+.footer-col p {
+
+    color:
+        rgba(255, 255, 255, 0.75);
+}
+
+.footer-col li {
+
+    margin-bottom: 10px;
+}
+
+.footer-col a {
+
+    color:
+        rgba(255, 255, 255, 0.75);
+
+    transition:
+        color var(--transition);
+}
+
+.footer-col a:hover {
+
+    color:
+        var(--color-secondary-light);
+}
+
+.social-links {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 15px;
+}
+
+.footer-bottom {
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.15);
+
+    text-align: center;
+}
+
+.footer-bottom p {
+
+    color:
+        rgba(255, 255, 255, 0.6);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   17. RESPONSIVIDADE — TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .menu ul {
+
+        gap: 15px;
+    }
+
+    .menu a {
+
+        font-size: 13px;
+    }
+
+    .sobre-content {
+
+        gap: 40px;
+    }
+
+    .footer-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   18. RESPONSIVIDADE — CELULAR
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* ---------- CONTAINER ---------- */
+
+    .container {
+
+        width:
+            min(
+                calc(100% - 30px),
+                var(--container-width)
+            );
+    }
+
+
+    /* ---------- HEADER ---------- */
+
+    .header .container {
+
+        min-height: 70px;
+    }
+
+    .menu {
+
+        display: none;
+    }
+
+    .menu-toggle {
+
+        display: block;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+
+        min-height: 600px;
+    }
+
+    .hero h1 {
+
+        font-size: 42px;
+    }
+
+    .hero p {
+
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    /* ---------- SEÇÕES ---------- */
+
+    section {
+
+        padding:
+            70px 0;
+    }
+
+
+    /* ---------- CELEBRAÇÕES ---------- */
+
+    .celebracoes-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    /* ---------- SOBRE ---------- */
+
+    .sobre-content {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 40px;
+    }
+
+    .sobre-imagem {
+
+        min-height: 300px;
+    }
+
+    .image-placeholder {
+
+        min-height: 300px;
+    }
+
+
+    /* ---------- COMUNIDADE ---------- */
+
+    .comunidade-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    /* ---------- EVENTOS ---------- */
+
+    .eventos-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    /* ---------- NOTÍCIAS ---------- */
+
+    .noticias-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    /* ---------- GALERIA ---------- */
+
+    .galeria-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    /* ---------- CONTATO ---------- */
+
+    .contato-content {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    /* ---------- RODAPÉ ---------- */
+
+    .footer-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 30px;
+    }
+
+}
+
+
+/* =========================================================
+   19. CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+
+        font-size: 36px;
+    }
+
+    .section-header h2 {
+
+        font-size: 34px;
+    }
+
+    .sobre-texto h2,
+    .contato-info h2 {
+
+        font-size: 34px;
+    }
+
+    .galeria-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
